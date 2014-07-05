@@ -1,0 +1,13 @@
+Jobs = 20
+getenv         = False
+executable     = SkimmingAndSlimming.sh 
+output         = output/SkimAndSlim.out.$(Process)
+error          = error/SkimAndSlim.error.$(Process)
+log            = log/SkimAndSlim.log.$(Process)
+arguments = $(Process) $(Jobs)
+transfer_input_files = slimming_d3pd.py,/tmp/x509up_u55261,inputFileLists,branchesList,cutCode
+#Requirements   = HAS_CVMFS =?= True
+#Requirements = (IS_RCC_FRESNOSTATE && Machine == "pt3wrk1.atlas.csufresno.edu" )
+#WhenToTransferOutput = ON_EXIT
++ProjectName = "atlas-org-fresnostate"
+queue $(Jobs)
